@@ -1,0 +1,60 @@
+package assignment1;
+import java.util.Scanner;
+
+class FeeCalculator {
+    private String courseType;
+    private int duration;
+
+    
+    public FeeCalculator(String courseType, int duration) {
+        this.courseType = courseType;
+        this.duration = duration;
+    }
+
+    
+    public double calculateFee() {
+        double monthlyFee;
+
+        switch (courseType.toLowerCase()) {
+            case "computer":
+                monthlyFee = 2000;
+                break;
+            case "electronics":
+                monthlyFee = 2500;
+                break;
+            case "mechanical":
+                monthlyFee = 2200;
+                break;
+            case "civil":
+                monthlyFee = 2200;
+                break;
+           default :
+        	   System.out.println("Invalid course typed!!");
+        	   monthlyFee  = 0;
+        }
+
+        return monthlyFee * duration;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+    
+        System.out.print("Enter course type (Computer/Electronics/Mechanical/Civil): ");
+        String courseType = sc.nextLine();
+
+        System.out.print("Enter duration in months: ");
+        int duration = sc.nextInt();
+
+    
+        FeeCalculator calculator = new FeeCalculator(courseType, duration);
+
+    
+        double totalFee = calculator.calculateFee();
+        System.out.println("Total Fee for " + duration + " months of " + courseType + " course: " + totalFee);
+
+        sc.close();
+    }
+}
