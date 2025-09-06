@@ -1,0 +1,35 @@
+class rethrow {
+
+
+ public void performTask() throws Exception {
+     try {
+         System.out.println("Starting tasks...");
+
+         int[] arr = {10, 20, 30};
+         
+         System.out.println("Array element at index 2: " + arr[2]);
+
+         int a = 10, b = 0;
+         int result = a / b; 
+
+         System.out.println("Result: " + result);
+         System.out.println("Tasks completed successfully!");
+     } catch (Exception e) {
+         System.out.println("Exception caught in performTask(), rethrowing...");
+         throw e;  
+     }
+ }
+
+
+ public static void main(String[] args) {
+     rethrow r = new rethrow();
+
+     try {
+         r.performTask();
+     } catch (Exception e) {
+         System.out.println("Exception handled in main(): " + e);
+     }
+
+     System.out.println("Program continues normally...");
+ }
+}
