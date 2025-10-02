@@ -1,1 +1,24 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class assignment3 {
+
+
+	    public static void main(String[] args) {
+	        
+	    	ExecutorService executor = Executors.newFixedThreadPool(4);
+
+	        Runnable task1 = () -> System.out.println(" Task 1: Launching the program...");
+	        Runnable task2 = () -> System.out.println(" Task 2: Loading data into memory...");
+	        Runnable task3 = () -> System.out.println(" Task 3: Performing heavy calculations...");
+	        Runnable task4 = () -> System.out.println(" Task 4: Saving results and finishing up.");
+
+	        executor.submit(task1);
+	        executor.submit(task2);
+	        executor.submit(task3);
+	        executor.submit(task4);
+
+	        executor.shutdown();
+	}
+}
 
